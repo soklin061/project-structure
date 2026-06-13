@@ -2,19 +2,31 @@ import { useProducts } from '../../hooks/useProducts';
 import { apiService } from '../../services/apiService';
 
 export default function ProductsPage() {
-  // Config -> Service -> Hooks -> Managed Page State
   const { data: products, loading, error } = useProducts(apiService.getProducts);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading)return <div className="text-center py-10 text-gray-500">Loading...</div>;
+  if (error) return <div className="text-center py-10 text-red-500">Error: {error}</div>;
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
-      {products.map((product) => (
-        <div key={product.id} style={{ border: '1px solid #e2e8f0', padding: '16px', borderRadius: '12px' }}>
-          <img src={product.thumbnail} alt={product.title} style={{ width: '100%', height: '150px', objectFit: 'contain' }} />
-          <h3>{product.title}</h3>
-          <p>${product.price}</p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5">
+      {products?.map((product) => (
+        <div
+          key={product.id}
+          className="border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition"
+        >
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            className="w-full h-40 object-contain mb-3"
+          />
+
+          <h3 className="text-sm font-semibold text-gray-800 line-clamp-2">
+            {product.title}
+          </h3>
+
+          <p className="text-blue-600 font-bold mt-2">
+            ${product.price}
+          </p>
         </div>
       ))}
     </div>
