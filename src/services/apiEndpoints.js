@@ -1,4 +1,5 @@
 export const API_ENDPOINTS = {
-  PRODUCTS: '/products',
-  CATEGORIES: '/products/categories',
+  PRODUCTS: {
+    GET_ALL: '/products',
+  }
 };

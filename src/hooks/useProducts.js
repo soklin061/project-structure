@@ -1,10 +1,24 @@
-import { useContext } from 'react';
-import { ProductContext } from '../context/ProductContext';
+import { useState, useEffect } from 'react';
 
-export const useProducts = () => {
-  const context = useContext(ProductContext);
-  if (!context) {
-    throw new Error('useProducts must be used within a ProductProvider');
-  }
-  return context;
+export const useProducts = (apiService) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const execute = async () => {
+      try {
+        setLoading(true);
+        const result = await apiService();
+        setData(result);
+      } catch (err) {
+        setError(err.message || 'Something went wrong');
+      } finally {
+        setLoading(false);
+      }
+    };
+    execute();
+  }, [apiService]);
+
+  return { data, loading, error };
 };

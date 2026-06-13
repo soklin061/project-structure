@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "appName": "StoreHub",
+    "nav": {
+      "products": "Products",
+      "dashboard": "Dashboard",
+      "logout": "Logout"
+    },
+    "home": {
+      "title": "Explore Products",
+      "subtitle": "Live administrative dashboard mapping direct from network vendor API arrays.",
+      "loading": "Loading catalog inventory assets..."
+    }
+  }
+}

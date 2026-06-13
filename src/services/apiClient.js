@@ -1,11 +1,7 @@
-import axios from 'axios';
-import { API_BASE_URL } from '../config/constants';
+import { API_CONFIG } from '../config/apiConfig';
 
-const apiClient = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-export default apiClient;
+export const apiClient = async (endpoint, options = {}) => {
+  const response = await fetch(`${API_CONFIG.baseUrl}${endpoint}`, options);
+  if (!response.ok) throw new Error('Network error');
+  return await response.json();
+};
