@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* 1. In Tailwind v4, use the @theme directive instead of tailwind.config.js */
+@theme {
+  --font-sans: "Inter", "Kantumruy Pro", sans-serif;
+}
+@variant dark (&:where(.dark, .dark *));
+
+:lang(km) {
+  font-family: "Kantumruy Pro", "Inter", sans-serif;
+  line-height: 1.7; /* Crucial height breathing room for Khmer glyphs */
+}
