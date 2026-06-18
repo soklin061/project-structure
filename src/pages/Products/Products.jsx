@@ -5,7 +5,7 @@ import { useTranslation } from '../../hooks/useTranslation';
 import { formatCurrency } from '../../utils/formatCurrency'; // 1. Import your existing utility
 
 export default function ProductsPage() {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   
   usePageTitle(t('products.title'));
 
@@ -39,9 +39,6 @@ export default function ProductsPage() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5">
       {products?.map((product) => {
-        // Safe key assessment rule
-        const localizedTitle = product[`title_${locale}`] || product.title || 'No Title';
-
         return (
           <div
             key={product.id}
@@ -51,7 +48,7 @@ export default function ProductsPage() {
               <div className="w-full h-44 bg-slate-50 dark:bg-slate-950/40 rounded-xl overflow-hidden mb-4 flex items-center justify-center p-2 relative">
                 <img
                   src={product.thumbnail}
-                  alt={localizedTitle}
+                  alt=""
                   className="max-h-full max-w-full object-contain transform group-hover:scale-105 transition duration-300"
                   loading="lazy"
                 />
@@ -59,7 +56,7 @@ export default function ProductsPage() {
 
               {/* Added responsive tracking and slightly bigger lead height for Khmer rendering */}
               <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 line-clamp-2 leading-relaxed tracking-wide">
-                {localizedTitle}
+                {product.title}
               </h3>
             </div>
 

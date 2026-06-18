@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 // 1. Import your new utility functions using relative paths
-import { getCurrentLanguage, changeLanguage } from '../utils/changeLanguage';
+import { getCurrentLanguage, acceptLanguage } from '../utils/acceptLanguage';
 import { getCurrentTheme, toggleTheme } from '../utils/theme';
 import LanguageSwitcher from "../components/LanguageSwitcher";
 

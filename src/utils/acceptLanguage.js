@@ -1,4 +1,4 @@
-// src/utils/changeLanguage.js
+// src/utils/acceptLanguage.js
 
 // 1. Get the current active language from storage or browser fallback
 export function getCurrentLanguage() {
@@ -6,7 +6,7 @@ export function getCurrentLanguage() {
 }
 
 // 2. Function to update the language and reload the page for headers
-export function changeLanguage(selectedLanguage) {
+export function acceptLanguage(selectedLanguage) {
   localStorage.setItem('language', selectedLanguage);
   
   // Instantly reloads the page so apiClient.js locks in the new Accept-Language header

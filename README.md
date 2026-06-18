@@ -17,22 +17,25 @@ my-react-vite-app/
 │   ├── components/          # Reusable UI components
 │   │   ├── Button/
 │   │   │   ├── Button.jsx
-│   │   │   └── Button.module.css
 │   │   └── Navbar.jsx
 │   ├── config/              # Application-wide configurations and constants
 │   │   └── apiConfig.js     
 │   ├── hooks/               # Custom React hooks for shared logic
-│   │   └── useFetch.js
+│   │   ├── usePageTitle.js
+│   │   ├── useProducts.js
+│   │   └── useTranslation.js
 │   ├── layouts/             # Page layout wraps (e.g., Header, Sidebar, Footer grids)
 │   │   └── MainLayout.jsx
 │   ├── pages/               # Top-level view components (Route destinations)
-│   │   ├── Home/
-│   │   │   └── Home.jsx
-│   │   ├── Login/
-│   │   │   └── Login.jsx
+│   │   ├── Categories/
+│   │   │   └── Categories.jsx
+│   │   ├── Products/
+│   │   │   └── Products.jsx
 │   │   └── Dashboard.jsx
 │   ├── services/            # API interaction layers and SDK initializations
-│   │   └── api.js           
+│   │   ├── apiClient.js           
+│   │   ├── apiEndpoints.js           
+│   │   └── apiService.js           
 │   ├── utils/               # Pure helper functions and formatters
 │   │   └── formatDate.js
 │   ├── App.jsx              # Main application root and routing wrapper

@@ -1,5 +1,5 @@
 // src/hooks/useTranslation.js
-import { getCurrentLanguage } from '../utils/changeLanguage';
+import { getCurrentLanguage } from '../utils/acceptLanguage';
 import en from '../assets/locales/en.json';
 import km from '../assets/locales/km.json';
 

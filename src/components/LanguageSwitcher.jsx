@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ColorSelect from './ui/Search';
-import { getCurrentLanguage, changeLanguage } from '../../src/utils/changeLanguage';
+import { getCurrentLanguage, acceptLanguage } from '../../src/utils/acceptLanguage';
 
 function LanguageSwitcher() {
   const languageOptions = [
@@ -18,7 +18,7 @@ function LanguageSwitcher() {
     const lang = selected.value;
 
     setCurrentLang(lang);
-    changeLanguage(lang);
+    acceptLanguage(lang);
   };
 
   return (
