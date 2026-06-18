@@ -1,37 +1,46 @@
+# 🚀 React Vite Application
+
+A modern, highly structured React application bundled with Vite. Built with scalability, performance, and clean architecture in mind.
+
+---
+
+## 📂 Project Structure
+
+```text
 my-react-vite-app/
-├── .env                     # 👈 1. Added here at the root level for your VITE_API_BASE_URL
-├── public/                  
+├── .env                     # Global environment variables (e.g., VITE_API_BASE_URL)
+├── public/                  # Static assets available at the root URL
 │   └── favicon.ico
-├── src/                     
-│   ├── assets/              
+├── src/                     # Source code directory
+│   ├── assets/              # Static media assets (images, global icons, SVGs)
 │   │   └── logo.svg
-│   ├── components/          
+│   ├── components/          # Reusable UI components
 │   │   ├── Button/
 │   │   │   ├── Button.jsx
 │   │   │   └── Button.module.css
 │   │   └── Navbar.jsx
-│   ├── config/              # 👈 2. Updated: Great place for global constants, app configs, or API base settings 
+│   ├── config/              # Application-wide configurations and constants
 │   │   └── apiConfig.js     
-│   ├── hooks/               
+│   ├── hooks/               # Custom React hooks for shared logic
 │   │   └── useFetch.js
-│   ├── layouts/             
+│   ├── layouts/             # Page layout wraps (e.g., Header, Sidebar, Footer grids)
 │   │   └── MainLayout.jsx
-│   ├── pages/               
+│   ├── pages/               # Top-level view components (Route destinations)
 │   │   ├── Home/
 │   │   │   └── Home.jsx
 │   │   ├── Login/
 │   │   │   └── Login.jsx
 │   │   └── Dashboard.jsx
-│   ├── services/            
-│   │   └── api.js           # 👈 Perfect! Your fetch logic can reference import.meta.env here
-│   ├── utils/               
+│   ├── services/            # API interaction layers and SDK initializations
+│   │   └── api.js           
+│   ├── utils/               # Pure helper functions and formatters
 │   │   └── formatDate.js
-│   ├── App.jsx              
-│   ├── index.css            
-│   └── main.jsx             
-├── .eslintrc.cjs            
-├── .gitignore               
-├── index.html               
-├── package.json             
-├── vite.config.js           
-└── README.md
+│   ├── App.jsx              # Main application root and routing wrapper
+│   ├── index.css            # Global stylesheets
+│   └── main.jsx             # Application entry point
+├── .eslintrc.cjs            # Linter rules configuration
+├── .gitignore               # Specified files to ignore in Git tracking
+├── index.html               # Main HTML entry canvas
+├── package.json             # Dependencies and build script registries
+├── vite.config.js           # Vite-specific compiler and plugin options
+└── README.md                # Project documentation
