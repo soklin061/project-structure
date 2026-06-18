@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 // 1. Import your new utility functions using relative paths
 import { getCurrentLanguage, changeLanguage } from '../utils/changeLanguage';
 import { getCurrentTheme, toggleTheme } from '../utils/theme';
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function MainLayout() {
   // 2. Fetch the active language to keep the select dropdown synced
@@ -30,9 +31,7 @@ export default function MainLayout() {
 
           {/* 3. Premium Tailwind Language Dropdown Selection */}
           <div className="flex items-center space-x-2">
-            <label htmlFor="lang-select" className="text-sm font-medium text-slate-500">
-              Language:
-            </label>
+           
             <button
               onClick={handleThemeToggle}
               className="p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 shadow-sm transition duration-150 text-sm font-semibold"
@@ -40,17 +39,7 @@ export default function MainLayout() {
             >
               {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
             </button>
-            <select
-              id="lang-select"
-              value={currentLang}
-              // Call the utility function directly on change!
-              onChange={(e) => changeLanguage(e.target.value)}
-              className="block rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm outline-none transition duration-150 ease-in-out hover:border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 cursor-pointer"
-            >
-              <option value="en">🇺🇸 English</option>
-              <option value="km">🇰🇭 ភាសាខ្មែរ</option>
-              <option value="zh">🇨🇳 中文</option>
-            </select>
+            <LanguageSwitcher/>
           </div>
         </div>
       </header>

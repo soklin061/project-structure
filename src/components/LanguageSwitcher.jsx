@@ -1,28 +1,34 @@
-import React from 'react';
+import { useState } from 'react';
+import ColorSelect from './ui/Search';
+import { getCurrentLanguage, changeLanguage } from '../../src/utils/changeLanguage';
 
 function LanguageSwitcher() {
-  const currentLang = localStorage.getItem('language') || navigator.language.split('-')[0] || 'en';
+  const languageOptions = [
+    { value: 'en', label: '🇺🇸 English' },
+    { value: 'km', label: '🇰🇭 ភាសាខ្មែរ' },
+  ];
 
-  const handleLanguageChange = (event) => {
-    const selectedLanguage = event.target.value;
-    localStorage.setItem('language', selectedLanguage);
-    window.location.reload();
+  const [currentLang, setCurrentLang] = useState(getCurrentLanguage());
+
+  const selectedLang = languageOptions.find(
+    (item) => item.value === currentLang
+  );
+
+  const handleChange = (selected) => {
+    const lang = selected.value;
+
+    setCurrentLang(lang);
+    changeLanguage(lang);
   };
 
   return (
-    <div className="language-switcher" style={{ padding: '10px' }}>
-      <label htmlFor="lang-select" style={{ marginRight: '8px', fontWeight: 'bold' }}>
-        Language: 
-      </label>
-      <select 
-        id="lang-select" 
-        value={currentLang} 
-        onChange={handleLanguageChange}
-        style={{ padding: '5px', borderRadius: '4px', cursor: 'pointer' }}
-      >
-        <option value="en">English (EN)</option>
-        <option value="km">ភាសាខ្មែរ (KM)</option>
-      </select>
+    <div className="w-48">
+      <ColorSelect
+        options={languageOptions}
+        value={selectedLang}
+        onChange={handleChange}
+        placeholder="Language"
+      />
     </div>
   );
 }

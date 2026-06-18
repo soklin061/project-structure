@@ -20,5 +20,9 @@ export const useProducts = (apiService) => {
     execute();
   }, [apiService]);
 
-  return { data, loading, error };
+  return { 
+    data, 
+    loading, 
+    error 
+  };
 };
